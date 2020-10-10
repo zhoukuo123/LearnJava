@@ -5,6 +5,19 @@ public class Dog {
     public int age;
     public double weight;
 
+    public Dog() {
+
+    }
+
+    public Dog(int age) {
+        this.age = age;
+    }
+
+    public Dog(int age, double weight) {
+        this.age = age;
+        this.weight = weight;
+    }
+
     // 方法
     public void run() {
         System.out.println(age + "_" + weight + "_walk");

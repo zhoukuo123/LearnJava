@@ -1,5 +1,7 @@
 package com.zk;
 
+import static java.lang.Math.PI;
+
 public class Main {
 //    public static void main(String[] args) {
 ////        Company cpy = new Company("Google");
@@ -38,13 +40,28 @@ public class Main {
 //        if (n <= 1) return n;
 //        return n + sum(n - 1);
 //    }
+//    public static void main(String[] args) {
+//        // 会分配一块堆空间, 创建一个Dog对象, 把堆空间Dog对象的
+//        // 地址值返回给dog变量, 所以dog是引用类型
+//        Dog dog = new Dog();
+//        dog.age = 20;
+//        dog.weight = 5.6;
+//        dog.run();
+//        dog.eat("apple");
+//    }
     public static void main(String[] args) {
-        // 会分配一块堆空间, 创建一个Dog对象, 把堆空间Dog对象的
-        // 地址值返回给dog变量, 所以dog是引用类型
-        Dog dog = new Dog();
-        dog.age = 20;
-        dog.weight = 5.6;
-        dog.run();
-        dog.eat("apple");
+        Dog[] dogs = new Dog[7];
+        for (int i = 0; i < dogs.length; i++) {
+            dogs[i] = new Dog();
+        }
+        dogs[6] = null;
+        int age = 10;
+        Person person = new Person();
+        System.out.println(person);
+        System.out.println(2 * PI * 10);
     }
+
+
+
+
 }
