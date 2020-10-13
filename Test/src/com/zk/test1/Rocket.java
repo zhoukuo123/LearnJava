@@ -14,6 +14,7 @@ public class Rocket {
     private static Rocket instance = null;
     private Rocket() {}
     public static Rocket getInstance() {
+        // 这个方法并非线程安全
         if (instance == null) {
             instance = new Rocket();
         }

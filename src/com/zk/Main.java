@@ -49,6 +49,8 @@ public class Main {
 //        dog.run();
 //        dog.eat("apple");
 //    }
+    static final String NAME = "adsf";
+    static final int AGE = 20;
     public static void main(String[] args) {
         Dog[] dogs = new Dog[7];
         for (int i = 0; i < dogs.length; i++) {
@@ -59,6 +61,9 @@ public class Main {
         Person person = new Person();
         System.out.println(person);
         System.out.println(2 * PI * 10);
+        System.out.println(NAME);
+        System.out.println(NAME);
+        System.out.println(AGE);
     }
 
 
