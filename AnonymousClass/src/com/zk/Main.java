@@ -3,6 +3,9 @@ package com.zk;
 import com.zk.util.Files;
 import com.zk.util.Times;
 
+import java.util.Arrays;
+import java.util.Comparator;
+
 public class Main {
     public static void main(String[] args) {
         String s1 = "zk";
@@ -24,16 +27,24 @@ public class Main {
 //                return 100;
 //            }
 //        }); // eat - Apple - 100
-//        Times.test(new Times.Block() {
-//            @Override
-//            public void execute() {
-//                int age = 100000;
-//                String string = "";
-//                for (int i = 0; i < age; i++) {
-//                    string += i;
-//                }
-//            }
-//        });
+        Times.test(new Times.Block() {
+            @Override
+            public void execute() {
+                int age = 100000;
+                String string = "";
+                for (int i = 0; i < age; i++) {
+                    string += i;
+                }
+            }
+        });
+
+        Times.test(() -> {
+            int age = 100000;
+            String string = "";
+            for (int i = 0; i < age; i++) {
+                string += i;
+            }
+        });
 //        Networks.get("https://xxx.com?name=xx&age = 18", new Networks.Block() {
 //            @Override
 //            public void success(Object response) {
@@ -52,12 +63,39 @@ public class Main {
             }
         });
 
-        Files.getAllFilenames("/home", new Files.Filter() {
+        Files.getAllFilenames("/home/linux", filename -> {
+            return filename.contains("类");
+        });
+
+//
+//        Files.getAllFilenames("/home", new Files.Filter() {
+//            @Override
+//            public boolean accept(String filename) {
+//                return filename.contains("集合");
+//            }
+//        });
+
+        Integer[] array = {33, 22, 11, 77, 66, 99};
+//        // Arrays默认是升序, 所有小的放左边, 大的放右边
+//        Arrays.sort(array);
+//        // [11, 22, 33, 66, 77, 99]
+//        System.out.println(Arrays.toString(array));
+        Arrays.sort(array, new Comparator<Integer>() {
+            /**
+             * @return > 0 : o1 > o2
+             * = 0 : o1 == o2
+             * < 0 : o1 < o2
+             */
             @Override
-            public boolean accept(String filename) {
-                return filename.contains("集合");
+            public int compare(Integer o1, Integer o2) {
+                return o2 - o1;
             }
         });
+
+        Arrays.sort(array, (o1, o2) -> o2 - o1);
+
+//        // [99, 77, 66, 33, 22, 11]
+//        System.out.println(Arrays.toString(array));
     }
 
     static void anonymousClass() {
