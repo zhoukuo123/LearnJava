@@ -45,8 +45,19 @@ public class Main {
 //                System.out.println("请求失败");
 //            }
 //        });
-        Files.getAllFilenames("/home/linux", new String[]{"txt", "pptx"});
+        Files.getAllFilenames("/home/linux", new Files.Filter() {
+            @Override
+            public boolean accept(String filename) {
+                return filename.contains("类");
+            }
+        });
 
+        Files.getAllFilenames("/home", new Files.Filter() {
+            @Override
+            public boolean accept(String filename) {
+                return filename.contains("集合");
+            }
+        });
     }
 
     static void anonymousClass() {
