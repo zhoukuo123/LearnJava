@@ -37,6 +37,8 @@ public class Main {
                 }
             }
         });
+//        String s1 = "123";
+//        String s2 = new String("123");
 
         Times.test(() -> {
             int age = 100000;
