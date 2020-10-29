@@ -7,6 +7,8 @@ package com.zk.enumtype;
 public class Main {
     public static void main(String[] args) {
         Season s = Season.SPRING;
+        System.out.println(s.getMin());
+        System.out.println(s.getMax());
         test(s);
     }
 
@@ -18,7 +20,7 @@ public class Main {
             case SUMMER:
                 System.out.println("夏天");
                 break;
-            case FULL:
+            case FALL:
                 System.out.println("秋天");
                 break;
             case WINTER:
@@ -31,7 +33,7 @@ public class Main {
             System.out.println("春天");
         } else if (season == Season.SUMMER) {
             System.out.println("夏天");
-        } else if (season == Season.FULL) {
+        } else if (season == Season.FALL) {
             System.out.println("秋天");
         } else if (season == Season.WINTER) {
             System.out.println("冬天");
