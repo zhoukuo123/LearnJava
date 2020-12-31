@@ -1,4 +1,4 @@
-package zk;
+package com.zk;
 
 public class Main {
     public static void main(String[] args) {

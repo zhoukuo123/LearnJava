@@ -1,4 +1,4 @@
-package zk;
+package com.zk;
 
 import javax.swing.*;
 import java.awt.*;

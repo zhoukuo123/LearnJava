@@ -1,4 +1,4 @@
-package zk;
+package com.zk;
 
 import java.io.BufferedInputStream;
 import java.io.File;
