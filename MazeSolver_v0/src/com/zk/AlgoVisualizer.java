@@ -2,6 +2,9 @@ package com.zk;
 
 import java.awt.*;
 
+/**
+ * 递归DFS
+ */
 public class AlgoVisualizer {
     private static int DELAY = 3;
     private static int blockSide = 8; // 每一个小格子8像素

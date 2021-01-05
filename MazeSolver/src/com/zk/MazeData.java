@@ -18,6 +18,7 @@ public class MazeData {
 
     public boolean[][] visited;
     public boolean[][] path;
+    public boolean[][] result;
 
     public MazeData(String filename) {
         if (filename == null) {
@@ -42,6 +43,7 @@ public class MazeData {
             maze = new char[N][M];
             visited = new boolean[N][M];
             path = new boolean[N][M];
+            result = new boolean[N][M];
 
             // 读取后续的N行
             for (int i = 0; i < N; i++) {
@@ -56,6 +58,7 @@ public class MazeData {
                     maze[i][j] = line.charAt(j);
                     visited[i][j] = false;
                     path[i][j] = false;
+                    result[i][j] = false;
                 }
             }
         } catch (IOException e) {

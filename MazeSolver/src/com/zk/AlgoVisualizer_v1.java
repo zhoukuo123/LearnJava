@@ -1,13 +1,14 @@
 package com.zk;
 
 import java.awt.*;
-import java.util.Stack;
+import java.util.LinkedList;
+import java.util.Queue;
 
 /**
- * 非递归DFS
+ * BFS
  */
-public class AlgoVisualizer {
-    private static int DELAY = 10;
+public class AlgoVisualizer_v1 {
+    private static int DELAY = 20;
     private static int blockSide = 8; // 每一个小格子8像素
 
     private MazeData data;        // 数据
@@ -15,7 +16,7 @@ public class AlgoVisualizer {
 
     public static final int d[][] = {{-1, 0}, {0, 1}, {1, 0}, {0, -1}};
 
-    public AlgoVisualizer(String mazeFile) {
+    public AlgoVisualizer_v1(String mazeFile) {
 
         // 初始化数据
         data = new MazeData(mazeFile);
@@ -37,14 +38,14 @@ public class AlgoVisualizer {
     private void run() {
         setData(-1, -1, false);
 
-        Stack<Position> stack = new Stack<>();
+        Queue<Position> queue = new LinkedList<>();
         Position entrance = new Position(data.getEntranceX(), data.getEntranceY());
-        stack.push(entrance);
+        queue.offer(entrance);
         data.visited[entrance.getX()][entrance.getY()] = true;
 
         boolean isSolved = false;
-        while (!stack.empty()) {
-            Position curPos = stack.pop();
+        while (!queue.isEmpty()) {
+            Position curPos = queue.poll();
             setData(curPos.getX(), curPos.getY(), true);
 
             if (curPos.getX() == data.getExitX() && curPos.getY() == data.getExitY()) {
@@ -60,7 +61,7 @@ public class AlgoVisualizer {
                 if (data.inArea(newX, newY)
                         && !data.visited[newX][newY]
                         && data.getMaze(newX, newY) == MazeData.ROAD) {
-                    stack.push(new Position(newX, newY, curPos));
+                    queue.offer(new Position(newX, newY, curPos));
                     data.visited[newX][newY] = true;
                 }
             }
@@ -93,6 +94,6 @@ public class AlgoVisualizer {
     public static void main(String[] args) {
         String mazeFile = "/home/linux/IdeaProjects/LearnJava/MazeSolver/src/com/zk/maze_101_101.txt";
 
-        AlgoVisualizer vis = new AlgoVisualizer(mazeFile);
+        AlgoVisualizer_v1 vis = new AlgoVisualizer_v1(mazeFile);
     }
 }
