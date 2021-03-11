@@ -2,7 +2,7 @@ package com.zk.reflect.entity;
 
 public class Employee {
     private Integer eno;
-    private String ename;
+    public String ename;
     private Float salary;
     private String dname;
 
@@ -12,6 +12,14 @@ public class Employee {
 
     public Employee() {
         System.out.println("Employee默认构造方法已被执行");
+    }
+
+    public Employee(Integer eno, String ename, Float salary, String dname) {
+        this.eno = eno;
+        this.ename = ename;
+        this.salary = salary;
+        this.dname = dname;
+        System.out.println("Employee带参构造方法已被执行");
     }
 
     public Integer getEno() {
@@ -44,5 +52,21 @@ public class Employee {
 
     public void setDname(String dname) {
         this.dname = dname;
+    }
+
+    @Override
+    public String toString() {
+        return "Employee{" +
+                "eno=" + eno +
+                ", ename='" + ename + '\'' +
+                ", salary=" + salary +
+                ", dname='" + dname + '\'' +
+                '}';
+    }
+
+    public Employee updateSalary(Float val) {
+        this.salary = this.salary + val;
+        System.out.println(this.ename + "调薪至" + this.salary);
+        return this;
     }
 }
