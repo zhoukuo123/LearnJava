@@ -1,4 +1,4 @@
-package com.zk.reflect;
+package com.zk.reflect.sample;
 
 import java.util.Scanner;
 
