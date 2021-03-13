@@ -5,8 +5,12 @@ import com.zk.reflect.entity.Employee;
 import java.lang.reflect.Constructor;
 import java.lang.reflect.Field;
 import java.lang.reflect.InvocationTargetException;
+import java.lang.reflect.Method;
 
-public class FieldSample {
+/**
+ * 获取对象所有成员变量值
+ */
+public class GetDeclaredSample {
     public static void main(String[] args) {
         try {
             Class<?> employeeClass = Class.forName("com.zk.reflect.entity.Employee");
@@ -14,12 +18,20 @@ public class FieldSample {
             Employee employee = (Employee) constructor.newInstance(new Object[]{
                     100, "Jack", 3000f, "研发部"
             });
-            Field enameField = employeeClass.getField("ename");
-            String ename = (String) enameField.get(employee);
-            System.out.println(ename);
+            // 获取当前类所有成员变量
+            Field[] fields = employeeClass.getDeclaredFields();
+            for (Field field : fields) {
+                if (field.getModifiers() == 1) { // public修饰
+                    Object val = field.get(employee);
+                    System.out.println(field.getName() + ":" + val);
+                } else if (field.getModifiers() == 2) { // private修饰
+                    String methodName = "get" + field.getName().substring(0, 1).toUpperCase() + field.getName().substring(1);
 
-            enameField.set(employee, "rose");
-            System.out.println(employee.getEname());
+                    Method method = employeeClass.getMethod(methodName);
+                    Object val = method.invoke(employee);
+                    System.out.println(field.getName() + ":" + val);
+                }
+            }
         } catch (ClassNotFoundException | NoSuchMethodException e) {
             e.printStackTrace();
         } catch (IllegalAccessException e) {
@@ -27,9 +39,6 @@ public class FieldSample {
         } catch (InstantiationException e) {
             e.printStackTrace();
         } catch (InvocationTargetException e) {
-            e.printStackTrace();
-        } catch (NoSuchFieldException e) {
-            // field 没有访问权限, 或没有该field
             e.printStackTrace();
         }
     }
