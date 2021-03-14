@@ -12,9 +12,7 @@ public class ConstructorSample {
     public static void main(String[] args) {
         try {
             Class<?> employeeClass = Class.forName("com.zk.reflect.entity.Employee");
-            Constructor<?> constructor = employeeClass.getConstructor(new Class[]{
-                    Integer.class, String.class, Float.class, String.class
-            });
+            Constructor<?> constructor = employeeClass.getConstructor(Integer.class, String.class, Float.class, String.class);
             Employee employee = (Employee) constructor.newInstance(new Object[]{
                     100, "Jack", 3000f, "研发部"
             });
