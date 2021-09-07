@@ -1,7 +1,5 @@
 package com.zk;
 
-import static java.lang.Math.PI;
-
 public class Main {
 //    public static void main(String[] args) {
 ////        Company cpy = new Company("Google");
@@ -52,18 +50,21 @@ public class Main {
     static final String NAME = "adsf";
     static final int AGE = 20;
     public static void main(String[] args) {
-        Dog[] dogs = new Dog[7];
-        for (int i = 0; i < dogs.length; i++) {
-            dogs[i] = new Dog();
-        }
-        dogs[6] = null;
-        int age = 10;
-        Person person = new Person();
-        System.out.println(person);
-        System.out.println(2 * PI * 10);
-        System.out.println(NAME);
-        System.out.println(NAME);
-        System.out.println(AGE);
+//        Cat cat = new Cat("123");
+//        System.out.println(cat.getClass().getc);
+
+//        Dog[] dogs = new Dog[7];
+//        for (int i = 0; i < dogs.length; i++) {
+//            dogs[i] = new Dog();
+//        }
+//        dogs[6] = null;
+//        int age = 10;
+//        Person person = new Person();
+//        System.out.println(person);
+//        System.out.println(2 * PI * 10);
+//        System.out.println(NAME);
+//        System.out.println(NAME);
+//        System.out.println(AGE);
     }
 
 

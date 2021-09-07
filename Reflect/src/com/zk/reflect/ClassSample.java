@@ -9,8 +9,11 @@ public class ClassSample {
             Class<?> employeeClass = Class.forName("com.zk.reflect.entity.Employee");
             System.out.println("Employee已被加载到jvm");
             // newInstance() 通过默认构造方法创建新的对象
-            Employee employee = (Employee) employeeClass.newInstance();
-            System.out.println(employee);
+            Object o = employeeClass.newInstance();
+            System.out.println(o);
+            if (o instanceof Employee) {
+                System.out.println("yes");
+            }
         } catch (ClassNotFoundException e) {
             e.printStackTrace();
         } catch (IllegalAccessException e) {
